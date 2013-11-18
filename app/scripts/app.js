@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCharlaApp', [])
+angular.module('angularCharlaApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
