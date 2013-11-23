@@ -1,30 +1,261 @@
-<div class="header">
-	<ul class="nav nav-pills pull-right">
-		<li class="active"><a href="#">Home</a></li>
-		<li><a href="#">About</a></li>
-		<li><a href="#">Contact</a></li>
-	</ul>
-	<h3 class="text-muted">angular charla</h3>
+<nav class="navbar">
+    <button class="btn btn-default pull-left btn-sm" ng-click="slide = (slide - 1)" ng-show="slide > 0" accesskey="p">
+        anterior
+    </button>
+    <button class="btn btn-default pull-right btn-sm" ng-click="slide = (slide + 1)" ng-show="slide < 7" accesskey="n">
+        siguiente
+    </button>
+</nav>
+
+<div ng-switch on="slide">
+
+<article ng-switch-when="0">
+    <div class="header row">
+        <div class="text-center col-md-12">
+            <img class="AngularJS-large" src="img/angular_logo_for_light_background.svg">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Desarrollo rápido con <a href="http://angularjs.org">AngularJS</a></h1>
+
+            <p class="lead">
+                AngularJS combina elementos de HTML y Javascript para simplificar
+                significativamente el desarrollo de aplicaciones ricas en la web y la
+                comunicación con un <em>back-end</em>. Puede tomar el lugar de un marco de
+                trabajo completo con documentación accesible y una brillante y
+                vibrante comunidad. La charla está destinada a diseñadores,
+                desarrolladores, estudiantes y cualquiera con alguna idea de HTML y
+                Javascript.
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>GDG Devfest. La Paz. Bolivia. 2013</p>
+    </div>
+</article>
+
+<article ng-switch-when="1">
+    <div class="header">
+        <h1>Agenda</h1>
+    </div>
+
+    <ul class="lead">
+        <li>Tendencias de desarrollo</li>
+        <li>Una pequeña explicación</li>
+        <li>Una pequeña demo</li>
+    </ul>
+
+</article>
+
+<article ng-switch-when="2">
+    <div class="header">
+        <h1>Tendencias de desarrollo</h1>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="col-sm-2">Año de inicio</th>
+            <th class="col-sm-3 text-right">L.O.C.</th>
+            <th class="col-sm-3 text-right">Servidor (Java)</th>
+            <th class="col-sm-4 text-right">HTML + Javascript + CSS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2006</td>
+            <td class="text-right">5735</td>
+            <td class="text-right">70%</td>
+            <td class="text-right">8%</td>
+        </tr>
+        <tr>
+            <td>2009</td>
+            <td class="text-right">6298</td>
+            <td class="text-right">80%</td>
+            <td class="text-right">17%</td>
+        </tr>
+        <tr>
+            <td>2013</td>
+            <td class="text-right">2929</td>
+            <td class="text-right">20%</td>
+            <td class="text-right success">78%</td>
+        </tr>
+        </tbody>
+        <caption>
+            Comparación de líneas de código en tres proyectos pequeños diferentes
+        </caption>
+    </table>
+
+    <h1>¿Por qué?</h1>
+
+    <p class="lead">Porque la interacción con el usuario final es mejor. Ejemplo.
+        <a href="https://basecamp.com/">basecamp.com</a> es casi 50% Ruby, 50% Cofeescript.</p>
+</article>
+
+<article ng-switch-when="3">
+    <div class="header">
+        <h1>Tendencias de desarrollo</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="{{sinsql}}">SQL DB</h3>
+
+                    <h3 ng-show="sinsql">Mongo</h3>
+
+                    <h3 ng-show="sinsql">Couchbase</h3>
+                </div>
+                <div class="panel-body">
+                    <span class="label label-default">optimización</span>
+                    <span class="label label-default">datos</span>
+                    <span class="label label-default">respaldo</span>
+                    <span class="label label-success" ng-show="sinsql">entiende al navegador</span>
+                    <span class="label label-default label-danger" ng-show="futuro">seguridad</span>
+                    <span class="label label-default label-danger" ng-show="futuro">lógica de negocio</span>
+                </div>
+                <div class="panel-footer">
+                    <div class="btn-toolbar text-center">
+                        <button ng-click="sinsql='strikeout'" class="btn btn-default btn-success" ng-hide="sinsql">
+                            ¡NoSQL!
+                        </button>
+                        <button ng-click="sinsql=undefined" class="btn btn-default" ng-show="sinsql">
+                            ¡atrás!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Aplicación <span class="label label-danger"
+                                         ng-show="futuro && usoangular && sinsql">BYE BYE</span></h3>
+                </div>
+                <div class="panel-body">
+                    <span class="label label-default {{sinsql}}">lenguaje de consulta</span>
+                    <span class="label label-default {{futuro}}">seguridad</span>
+                    <span class="label label-default {{futuro && usoangular && sinsql && 'label-info'}}">integración</span>
+                    <span class="label label-default {{futurp}}">lógica de negocio</span>
+                    <span class="label label-default {{usoangular}}">plantillas</span>
+                    <span class="label label-default {{usoangular}}">componentes</span>
+                    <span class="label label-default {{usoangular}}">enrutamiento</span>
+                </div>
+                <div class="panel-footer">
+                    <div class="btn-toolbar text-center">
+                        <button ng-click="futuro='strikeout'" class="btn btn-default btn-danger" ng-hide="futuro">
+                            ¡mi predicción!
+                        </button>
+                        <button ng-click="futuro=undefined" class="btn btn-default" ng-show="futuro">
+                            ¡atrás!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Navegador</h3>
+
+                    <h3 ng-show="usoangular"><em>AngularJS</em></h3>
+                </div>
+                <div class="panel-body">
+                    <span class="label label-default">presentación</span>
+                    <span class="label label-default">elementos dinámicos</span>
+                    <span class="label label-default">ajax</span>
+                    <span class="label label-success" ng-hide="sql">¡la base me entiende!</span>
+                    <span class="label label-default label-primary" ng-show="usoangular">plantillas</span>
+                    <span class="label label-default label-primary" ng-show="usoangular">componentes</span>
+                    <span class="label label-default label-primary" ng-show="usoangular">enrutamiento</span>
+                </div>
+                <div class="panel-footer">
+                    <div class="btn-toolbar text-center">
+                        <button ng-click="usoangular='strikeout'" class="btn btn-default btn-primary"
+                                ng-hide="usoangular">
+                            ¡AngularJS!
+                        </button>
+                        <button ng-click="usoangular=undefined" class="btn btn-default" ng-show="usoangular">
+                            ¡atrás!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<article ng-switch-when="4">
+    <div class="header">
+        <h1>HTML5</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <ul class="lead">
+                <li>Navegadores compatibles</li>
+                <li>Puede comunicarse directamente con bases NoSQL</li>
+                <li>Diseñado para aplicaciones y no para documentos</li>
+                <li>Introduce web más semántica, por ejemplo <code>&lt;article&gt;</code>, o <code>&lt;menu&gt;</code>
+                </li>
+                <li>Varios <em>API</em>s, por ejemplo <em>Web storage</em></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <img src="img/HTML5_logo_and_wordmark.svg">
+        </div>
+    </div>
+</article>
+
+<article ng-switch-when="5">
+    <div class="header">
+        <img src="img/angular_logo_for_light_background_small.svg">
+    </div>
+
+    <ul class="lead">
+        <li>Enlace a datos</li>
+        <li>Separación de <em>Controller</em></li>
+        <li>Usa Javascript simple</li>
+        <li>Validación</li>
+        <li>Comunicación con el servidor</li>
+        <li>Componentes re-usables</li>
+        <li><em>Testeable</em></li>
+    </ul>
+</article>
+
+<article ng-switch-when="6">
+    <div class="header">
+        <h1>Herramientas para empezar</h1>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td>
+                <a href="https://npmjs.org/">
+                    <img src="img/npm.png" class="col-md-12">
+                </a>
+            </td>
+            <td>
+                <a href="http://yeoman.io/">
+                    <img src="img/yeoman-logo.png" class="col-md-12">
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</article>
+
+<article ng-switch-when="7">
+    <div class="jumbotron">
+        <h1>¡HORA DE LA DEMO!</h1>
+    </div>
+</article>
+
 </div>
 
-<div class="jumbotron">
-	<h1>'Allo, 'Allo!</h1>
-	<p class="lead">Always a pleasure scaffolding your apps.</p>
-	<p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-</div>
 
-<div class="row marketing">
-	<h4>HTML5 Boilerplate</h4>
-	<p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-	<h4>Angular</h4>
-	<p>AngularJS is a toolset for building the framework most suited to your application development.</p>
-
-	<h4>Karma</h4>
-	<p>Spectacular Test Runner for JavaScript.</p>
-</div>
-</div>
-
-<div class="footer">
-	<p>♥ from the Yeoman team</p>
-</div>

@@ -39,7 +39,7 @@ audio:not([controls]) {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Muli";
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -90,7 +90,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
+  font-family: "Ubuntu Mono";
   font-size: 1em;
 }
 
@@ -314,7 +314,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli";
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -462,7 +462,7 @@ cite {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Muli";
   font-weight: 500;
   line-height: 1.1;
 }
@@ -658,7 +658,7 @@ address {
 
 code,
 pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: "Ubuntu Mono";
 }
 
 code {
@@ -5494,7 +5494,7 @@ body.modal-open {
   height: 20px;
   margin-top: -10px;
   margin-left: -10px;
-  font-family: serif;
+  font-family: "Muli";
 }
 .carousel-control .icon-prev:before {
   content: '\2039';
@@ -6216,3 +6216,6 @@ td.visible-print {
   }
 }
 
+.strikeout {
+    text-decoration: line-through;
+}
