@@ -2,12 +2,12 @@
     <button class="btn btn-default pull-left btn-sm" ng-click="slide = (slide - 1)" ng-show="slide > 0" accesskey="p">
         anterior
     </button>
-    <button class="btn btn-default pull-right btn-sm" ng-click="slide = (slide + 1)" ng-show="slide < 7" accesskey="n">
+    <button class="btn btn-default pull-right btn-sm" ng-click="slide = (slide + 1)" ng-show="slide < 10" accesskey="n">
         siguiente
     </button>
 </nav>
 
-<div ng-switch on="slide">
+<div ng-switch="slide">
 
 <article ng-switch-when="0">
     <div class="header row">
@@ -35,22 +35,24 @@
     </div>
 </article>
 
-<article ng-switch-when="1">
+<article ng-switch-when="1" >
     <div class="header">
         <h1>Agenda</h1>
     </div>
 
     <ul class="lead">
-        <li>Tendencias de desarrollo</li>
+        <li>Una motivación</li>
         <li>Una pequeña explicación</li>
-        <li>Una pequeña demo</li>
+        <li>Una demo minúscula</li>
+        <li>Algunas reflexiones de lo que significa</li>
+        <li>Preguntas</li>
     </ul>
 
 </article>
 
-<article ng-switch-when="2">
+<article ng-switch-when="2" >
     <div class="header">
-        <h1>Tendencias de desarrollo</h1>
+        <h1>Motivación (1)</h1>
     </div>
 
     <table class="table table-striped">
@@ -64,7 +66,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>2006</td>
+            <td>2004</td>
             <td class="text-right">5735</td>
             <td class="text-right">70%</td>
             <td class="text-right">8%</td>
@@ -87,15 +89,27 @@
         </caption>
     </table>
 
-    <h1>¿Por qué?</h1>
+</article>
+
+<article ng-switch-when="3" >
+    <h1>¿Por qué?. Motivación (2)</h1>
 
     <p class="lead">Porque la interacción con el usuario final es mejor. Ejemplo.
         <a href="https://basecamp.com/">basecamp.com</a> es casi 50% Ruby, 50% Cofeescript.</p>
+
+    <h1>¿Qué necesitamos?</h1>
+
+    <ul class="lead">
+        <li>Refresco automático (notificaciones)</li>
+        <li>Animaciones</li>
+        <li>¡Velocidad! <span class="label label-primary">IMPORTANTE</span></li>
+        <li>Esto me causa ansiedad</li>
+    </ul>
 </article>
 
-<article ng-switch-when="3">
+<article ng-switch-when="4" >
     <div class="header">
-        <h1>Tendencias de desarrollo</h1>
+        <h1>Motivación (3)</h1>
     </div>
 
     <div class="row">
@@ -104,24 +118,24 @@
                 <div class="panel-heading">
                     <h3 class="{{sinsql}}">SQL DB</h3>
 
-                    <h3 ng-show="sinsql">Mongo</h3>
+                    <h3 ng-show="sinsql" class="animated flash">Mongo</h3>
 
-                    <h3 ng-show="sinsql">Couchbase</h3>
+                    <h3 ng-show="sinsql" class="animated flash">Couchbase</h3>
                 </div>
                 <div class="panel-body">
                     <span class="label label-default">optimización</span>
                     <span class="label label-default">datos</span>
                     <span class="label label-default">respaldo</span>
-                    <span class="label label-success" ng-show="sinsql">entiende al navegador</span>
-                    <span class="label label-default label-danger" ng-show="futuro">seguridad</span>
-                    <span class="label label-default label-danger" ng-show="futuro">lógica de negocio</span>
+                    <span class="label label-success animated flash" ng-show="sinsql">entiende al navegador</span>
+                    <span class="label label-default label-danger animated flash" ng-show="futuro">seguridad</span>
+                    <span class="label label-default label-danger animated flash" ng-show="futuro">lógica de negocio</span>
                 </div>
                 <div class="panel-footer">
                     <div class="btn-toolbar text-center">
-                        <button ng-click="sinsql='strikeout'" class="btn btn-default btn-success" ng-hide="sinsql">
+                        <button ng-click="sinsql='strikeout'" class="btn btn-default btn-success animated fade" ng-hide="sinsql">
                             ¡NoSQL!
                         </button>
-                        <button ng-click="sinsql=undefined" class="btn btn-default" ng-show="sinsql">
+                        <button ng-click="sinsql=undefined" class="btn btn-default animated fade" ng-show="sinsql">
                             ¡atrás!
                         </button>
                     </div>
@@ -132,7 +146,7 @@
         <div class="col-xs-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Aplicación <span class="label label-danger"
+                    <h3>Aplicación <span class="label label-danger animated flash"
                                          ng-show="futuro && usoangular && sinsql">BYE BYE</span></h3>
                 </div>
                 <div class="panel-body">
@@ -146,10 +160,10 @@
                 </div>
                 <div class="panel-footer">
                     <div class="btn-toolbar text-center">
-                        <button ng-click="futuro='strikeout'" class="btn btn-default btn-danger" ng-hide="futuro">
+                        <button ng-click="futuro='strikeout'" class="btn btn-default btn-danger animated fade" ng-hide="futuro">
                             ¡mi predicción!
                         </button>
-                        <button ng-click="futuro=undefined" class="btn btn-default" ng-show="futuro">
+                        <button ng-click="futuro=undefined" class="btn btn-default animated fade" ng-show="futuro">
                             ¡atrás!
                         </button>
                     </div>
@@ -168,18 +182,18 @@
                     <span class="label label-default">presentación</span>
                     <span class="label label-default">elementos dinámicos</span>
                     <span class="label label-default">ajax</span>
-                    <span class="label label-success" ng-hide="sql">¡la base me entiende!</span>
-                    <span class="label label-default label-primary" ng-show="usoangular">plantillas</span>
-                    <span class="label label-default label-primary" ng-show="usoangular">componentes</span>
-                    <span class="label label-default label-primary" ng-show="usoangular">enrutamiento</span>
+                    <span class="label label-success animated flash" ng-show="sinsql">¡la base me entiende!</span>
+                    <span class="label label-default label-primary animated flash" ng-show="usoangular">plantillas</span>
+                    <span class="label label-default label-primary animated flash" ng-show="usoangular">componentes</span>
+                    <span class="label label-default label-primary animated flash" ng-show="usoangular">enrutamiento</span>
                 </div>
                 <div class="panel-footer">
                     <div class="btn-toolbar text-center">
-                        <button ng-click="usoangular='strikeout'" class="btn btn-default btn-primary"
+                        <button ng-click="usoangular='strikeout'" class="btn btn-default btn-primary animated fade"
                                 ng-hide="usoangular">
                             ¡AngularJS!
                         </button>
-                        <button ng-click="usoangular=undefined" class="btn btn-default" ng-show="usoangular">
+                        <button ng-click="usoangular=undefined" class="btn btn-default animated fade" ng-show="usoangular">
                             ¡atrás!
                         </button>
                     </div>
@@ -190,9 +204,9 @@
 
 </article>
 
-<article ng-switch-when="4">
+<article ng-switch-when="5" >
     <div class="header">
-        <h1>HTML5</h1>
+        <h1>Explicando HTML5</h1>
     </div>
 
     <div class="row">
@@ -212,7 +226,7 @@
     </div>
 </article>
 
-<article ng-switch-when="5">
+<article ng-switch-when="6" >
     <div class="header">
         <img src="img/angular_logo_for_light_background_small.svg">
     </div>
@@ -228,9 +242,9 @@
     </ul>
 </article>
 
-<article ng-switch-when="6">
+<article ng-switch-when="7" >
     <div class="header">
-        <h1>Herramientas para empezar</h1>
+        <h1>Explicando. ¿Cómo empezar?</h1>
     </div>
 
     <table class="table">
@@ -248,12 +262,47 @@
         </tr>
     </table>
 
+    <ul class="lead">
+        <li>IDE: Jetbrains, Visual Studio 2013, NetBeans 7.4</li>
+        <li>Chrome (Batarang)</li>
+        <li>NodeJS - express.js, Firebase, CouchDB, Rails, y otros.</li>
+    </ul>
+
 </article>
 
-<article ng-switch-when="7">
+<article ng-switch-when="8">
+    <div class="header">
+        <h1>¿A qué prestar atención?</h1>
+    </div>
+
+    <ul class="lead">
+        <li>Aplicación de una sola página</li>
+        <li>Nota las herramientas</li>
+        <li>Javascript idiomático</li>
+    </ul>
+
+</article>
+
+<article ng-switch-when="9" >
     <div class="jumbotron">
         <h1>¡HORA DE LA DEMO!</h1>
     </div>
+</article>
+
+<article ng-switch-when="10" >
+    <div class="header">
+        <h1>Reflexión</h1>
+    </div>
+
+    <ul class="lead">
+        <li>¿Cómo cambia el proceso de desarrollo?</li>
+        <li>¿Cómo afecta al SEO?</li>
+        <li>¿Cómo escala?</li>
+        <li>¿Qué efecto tiene sobre el ancho de banda?</li>
+        <li>¿Cómo usa el ancho de banda?</li>
+        <li>¿Cómo afecta al desarrollador del back-end?</li>
+    </ul>
+
 </article>
 
 </div>

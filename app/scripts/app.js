@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularCharlaApp', ['ngRoute'])
+angular.module('angularCharlaApp', ['ngRoute', 'ngAnimate'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
